@@ -1,33 +1,59 @@
-# Sample gitconfig
-#
 # You probably want to change the [user] section here since you are not me.
 
-[hub]
-        protocol = https
 [user]
-        name = Zach Holman
-        email = zach@zachholman.com
-[credential]
-        helper = osxkeychain
+  name = jkahne
+  email = jkahne@gmail.com
+
+[github]
+  user = jkahne
+
 [alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributers = !$ZSH/bin/git-rank-contributers
-        count   = !git shortlog -sn
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  lg = log --pretty=format:'%Cred%h%Creset -%C)yellow)%d%Creset %s %Cgreen(%cr)%Creset' --graph --abbrev-commit --date=relative
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+
+#  promote = !$ZSH/bin/git-promote
+  wtf     = !$ZSH/bin/git-wtf
+#  rank-contributers = !$ZSH/bin/git-rank-contributers
+  count   = !git shortlog -sn
+  
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+  branch = auto
+  diff   = auto
+  status = auto
+#  ui = true
+
+[color "branch"]
+  current = yellow reverse
+  local   = yellow
+  remote  = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old  = red bold
+  new  = green bold
+
+[color "status"]
+  added     = yellow
+  changed   = green
+  untracked = cyan
+
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
+  excludesfile = ~/.gitignore
+  editor = vim
+
 [apply]
-        whitespace = nowarn
+  whitespace = nowarn
+
 [mergetool]
-        keepBackup = false
+  keepBackup = false
+
 [difftool]
-        prompt = false
+  prompt = false
+
 [help]
-        autocorrect = 1
+  autocorrect = 1

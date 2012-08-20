@@ -14,9 +14,9 @@ git_dirty() {
   else
     if [[ $st == "nothing to commit (working directory clean)" ]]
     then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo " $(rb_prompt) %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      echo " $(rb_prompt) %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
   fi
 }
@@ -34,7 +34,7 @@ unpushed () {
 need_push () {
   if [[ $(unpushed) == "" ]]
   then
-    echo " "
+    echo ""
   else
     echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
   fi
@@ -69,15 +69,22 @@ todo(){
 }
 
 directory_name(){
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+  #export PS1='%2/ ~ '
+  echo "%{$fg_bold[cyan]%}%2/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'$(directory_name)$(git_dirty)$(need_push) ᗌ '
+
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
 }
 
+set_term_tab() {
+  echo -ne "\e]1;$PWD:h:t/$PWD:t\a" 
+}
+
 precmd() {
   title "zsh" "%m" "%55<...<%~"
+  #set_term_tab
   set_prompt
 }

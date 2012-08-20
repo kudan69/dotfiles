@@ -1,7 +1,5 @@
-alias r='rbenv local 1.8.7-p358'
-
-alias sc='script/console'
-alias sg='script/generate'
-alias sd='script/destroy'
-
-alias migrate='rake db:migrate db:test:clone'
+alias cpwd="pwd | ruby -pe'\$_.chomp!' | pbcopy"
+alias rshare="ruby -rubygems -e \"['thin', 'rack', 'socket'].each {|file| require file };"\
+" Thin::Server.start(IPSocket.getaddress(Socket.gethostname), 7777) {"\
+" use Rack::CommonLogger; run Rack::Directory.new(Dir.pwd) }\""
+alias duo='du -sh $(du -s * | sort -k1n | ruby -nae '\''puts '\$'F[1..-1].join("?")'\'')'
