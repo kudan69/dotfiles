@@ -5,4 +5,3 @@ alias mv='mv -i'
 alias vimm='mvim -v'
 alias gvim='mvim -p'
 alias be="bundle exec"
-alias cpwd="pwd | ruby -pe'\$_.chomp!' | pbcopy"

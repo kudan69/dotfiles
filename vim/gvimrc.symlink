@@ -1,7 +1,11 @@
-colorscheme desert
-set anti
-set lines=999 columns=84
-set guioptions=egmrt
+colorscheme molokai
+"set guioptions=egmrt
+set guioptions+=e
+set guioptions-=T
+
+set guifont=Monaco:h15
+set lines=35 columns=150
+
 
 " Command + t to :CommandT
 if has("gui_macvim")

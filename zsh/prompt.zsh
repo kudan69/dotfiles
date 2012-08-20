@@ -69,15 +69,22 @@ todo(){
 }
 
 directory_name(){
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+  #export PS1='%2/ ~ '
+  echo "%{$fg_bold[cyan]%}%2/%\/%{$reset_color%}"
 }
 
 export PROMPT=$'$(directory_name)$(git_dirty)$(need_push) ᗌ '
+
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
 }
 
+set_term_tab() {
+  echo -ne "\e]1;$PWD:h:t/$PWD:t\a" 
+}
+
 precmd() {
   title "zsh" "%m" "%55<...<%~"
+  #set_term_tab
   set_prompt
 }
