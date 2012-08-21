@@ -1,8 +1,8 @@
 # You probably want to change the [user] section here since you are not me.
 
 [user]
-  name = jkahne
-  email = jkahne@gmail.com
+	name = jkahne
+	email = jkahne@gmail.com
 
 [github]
   user = jkahne
@@ -57,3 +57,5 @@
 
 [help]
   autocorrect = 1
+[credential]
+	helper = osxkeychain
