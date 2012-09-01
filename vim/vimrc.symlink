@@ -72,10 +72,10 @@ set splitright
 set splitbelow
 
 " buffer resizing mappings (shift + arrow key)
-nnoremap <S-Up> <c-w>+
-nnoremap <S-Down> <c-w>-
-nnoremap <S-Left> <c-w><
-nnoremap <S-Right> <c-w>>
+nnoremap <S-Up> <c-w>-
+nnoremap <S-Down> <c-w>+
+nnoremap <S-Left> <c-w>>
+nnoremap <S-Right> <c-w><
 
 " NERDTree commands
 let NERDTreeHijackNetrw = 0
@@ -84,6 +84,16 @@ nmap g :NERDTree \| NERDTreeToggle \| NERDTreeFind<CR>
 
 " reindent the entire file
 map <Leader>I gg=G``<cr>
+
+" clean up trailing whitespace
+map <Leader>c :%s/\s\+$<cr>   
+
+" delete all buffers
+map <Leader>d :bufdo bd<cr>
+
+" map spacebar to clear search highlight
+nnoremap <Leader><space> :noh<cr>
+
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
@@ -132,11 +142,4 @@ set hlsearch               " highlight searches
 set visualbell             " shut the fuck up
 
 
-" ---------------------------------------------------------------------------
-"  Strip all trailing whitespace in file
-" ---------------------------------------------------------------------------
 
-function! StripWhitespace ()
-    exec ':%s/ \+$//gc'
-endfunction
-map ,s :call StripWhitespace ()<CR>
