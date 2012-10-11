@@ -5,9 +5,13 @@
 # Assume everyone's on OS X and run Homebrew (*nix-ers beware)
 . script/homebrew
 
+rbenv install 1.9.3-p194
+rbenv global 1.9.3-p194
+
 # Run the install (I'd like to pull this out of rake, eventually)
 rake install
 
 # copy apps into Applications
+cp -r ./system/apps/GitX.app /Applications
 cp -r ./system/apps/MacVim.app /Applications
 cp system/apps/mvim /usr/local/bin
