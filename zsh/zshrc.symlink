@@ -1,5 +1,8 @@
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+eval "$(rbenv init -)"
+
 # add npm to path
-export PATH=/usr/local/share/npm/bin:$PATH
+# export PATH=/usr/local/share/npm/bin:$PATH
 
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles

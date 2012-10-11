@@ -18,3 +18,7 @@ fi
 # Install grc and coreutils
 #brew install grc coreutils
 brew install coreutils
+brew install rbenv
+brew install ruby-build
+# brew install postgresql
+
