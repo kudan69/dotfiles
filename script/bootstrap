@@ -7,6 +7,7 @@
 
 rbenv install 1.9.3-p194
 rbenv global 1.9.3-p194
+rbenv rehash
 
 # Run the install (I'd like to pull this out of rake, eventually)
 rake install
