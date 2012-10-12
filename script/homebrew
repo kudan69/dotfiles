@@ -21,4 +21,6 @@ brew install coreutils
 brew install rbenv
 brew install ruby-build
 # brew install postgresql
+brew install rbenv-gemset
+
 
