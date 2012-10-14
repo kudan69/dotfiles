@@ -32,9 +32,28 @@ echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH.
 brew install findutils
 
 brew install rbenv
-brew install ruby-build
-# brew install postgresql
 brew install rbenv-gemset
+brew install ruby-build
+#brew install postgresql
+echo "run 'brew info postgresql' to see postgresql installation instructions."
+echo "typically, you'll want to do:"
+echo "initdb /usr/local/var/postgres -E utf8"
+echo "To load on login:"
+echo " mkdir -p ~/Library/LaunchAgents"
+echo " cp /usr/local/Cellar/postgresql/9.2.1/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/"
+echo " launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+echo "to start manually:"
+echo " pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+
+# or maybe with 
+#Success. You can now start the database server using:
+#
+#    postgres -D /usr/local/var/postgres
+#or
+#    pg_ctl -D /usr/local/var/postgres -l logfile start
+
+
+
 
 brew install ack
 brew install tree
