@@ -10,18 +10,8 @@ rbenv install 1.9.3-p194
 rbenv global 1.9.3-p194
 rbenv rehash
 
-# Run the install (I'd like to pull this out of rake, eventually)
 rake install
 
-# copy apps into Applications
-#ln -s ./system/apps/GitX.app /Applications/GitX.app
-#ln -s ./system/apps/MacVim.app /Applications/MacVim.app
-#ln -s ./system/apps/mvim /usr/local/bin
-#ln -s ./osx/jkahne.terminal /Applications/Utilities/Terminal.app/Contents/Resources/Initial\ Settings/jkahne.terminal
 sudo cp ./osx/jkahne.terminal /Applications/Utilities/Terminal.app/Contents/Resources/Initial\ Settings
 
-#cp -r ./system/apps/GitX.app /Applications
-#cp -r ./system/apps/MacVim.app /Applications
-#cp system/apps/mvim /usr/local/bin
-
-. osx/set-defaults.sh
+#. osx/set-defaults.sh
