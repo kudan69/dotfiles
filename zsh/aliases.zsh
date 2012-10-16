@@ -76,3 +76,8 @@ alias hosts="head -2 ~/.ssh/known_hosts | tail -1 > ~/.ssh/known_hosts"
 
 # Pipe my public key to my clipboard. Fuck you, pay me.
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+
+# moom settings
+alias moom-in="cp ~/Dropbox/Apps/Moom/com.manytricks.Moom.plist  ~/Library/Preferences"
+alias moom-out="cp ~/Library/Preferences/com.manytricks.Moom.plist ~/Dropbox/Apps/Moom"
+alias moom-init="cp ~/.dotfiles/osx/com.manytricks.Moom.plist ~/Library/Preferences/"
