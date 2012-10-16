@@ -79,5 +79,5 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 
 # moom settings
 alias moom-in="cp ~/Dropbox/Apps/Moom/com.manytricks.Moom.plist  ~/Library/Preferences"
-alias moom-out="cp ~/Library/Preferences/com.manytricks.Moom.plist ~/Dropbox/Apps/Moom"
+alias moom-out="cp ~/Library/Preferences/com.manytricks.Moom.plist ~/Dropbox/Apps/Moom;cp ~/Library/Preferences/com.manytricks.Moom.plist ~/.dotfiles/osx/"
 alias moom-init="cp ~/.dotfiles/osx/com.manytricks.Moom.plist ~/Library/Preferences/"
