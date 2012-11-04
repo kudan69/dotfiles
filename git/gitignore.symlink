@@ -3,3 +3,6 @@
 *~
 *.swp
 *.rbc
+doc/tags
+doc/tags-ja
+plugin/showmarks.vim
