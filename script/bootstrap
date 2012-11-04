@@ -12,6 +12,4 @@ rbenv rehash
 
 rake install
 
-sudo cp ./osx/jkahne.terminal /Applications/Utilities/Terminal.app/Contents/Resources/Initial\ Settings
-
 #. osx/set-defaults.sh

@@ -62,18 +62,6 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 
 
-
-
-
-# Use the jkahne theme by default in Terminal.app
-
-# NOt sure if opening and sleeping is needed, but it seems like a restart is needed
-# before the defaults take effect.  Easiest way is to run this file again.  
-open "$HOME/.dotfiles/osx/jkahne.terminal"
-sleep 1 # Wait a bit to make sure the theme is loaded
-defaults write com.apple.terminal "Default Window Settings" -string "jkahne"
-defaults write com.apple.terminal "Startup Window Settings" -string "jkahne"
-
 # Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 

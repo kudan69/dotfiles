@@ -6,6 +6,14 @@ set guioptions-=T
 set guifont=Monaco:h15
 set lines=35 columns=150
 
+" kill the scrollbars
+"  set guioptions-=r
+"  set guioptions-=L
+
+" go full screen like you mean it
+"  set fuoptions=maxvert,maxhorz
+"  au GUIEnter * set fullscreen
+
 
 " Command + t to :CommandT
 if has("gui_macvim")
