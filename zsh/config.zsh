@@ -37,8 +37,6 @@ setopt HIST_REDUCE_BLANKS
 #   like: git comm-[tab]
 setopt complete_aliases
 
-zle -N newtab
-
 
 bindkey '^K' kill-whole-line
 bindkey "^R" history-incremental-search-backward
