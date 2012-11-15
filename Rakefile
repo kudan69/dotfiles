@@ -2,7 +2,7 @@ require 'rake'
 
 desc "Hook our dotfiles into system-standard positions."
 task :install do
-  linkables = Dir.glob('*/**{.symlink}')
+  linkables = Dir.glob('*/**{.symlink}', File::FNM_DOTMATCH)
 
   skip_all = false
   overwrite_all = false
