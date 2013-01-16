@@ -8,6 +8,9 @@ export ZSH=$HOME/.dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/projects
 
+export ARCHFLAGS='-arch x86_64'
+
+
 # source every .zsh file in this rep
 # Don't load completion.zsh yet.  For some reason this needs to be done last.
 for config_file ($ZSH/**/*.zsh) [[ "$(basename $config_file)" == "completion.zsh" ]] ||  source $config_file

@@ -19,23 +19,11 @@ Bundle 'gmarik/vundle'
 " Bundle 'scrooloose/nerdtree'
 Bundle 'git://git.wincent.com/command-t.git'
     let g:CommandTMatchWindowAtTop=1 " show window at top
-" Bundle 'tpope/vim-surround'
-Bundle 'msanders/snipmate.vim'
-Bundle "bufexplorer.zip"
-Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/syntastic'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'ShowMarks'
-Bundle 'L9'
-Bundle "git://github.com/pangloss/vim-javascript.git"
-Bundle "git://github.com/vim-scripts/Color-Sampler-Pack.git"
-Bundle "git://github.com/vim-scripts/ruby-matchit.git"
-Bundle "git://github.com/docunext/closetag.vim"
 
 " ACK
 Bundle "git://github.com/mileszs/ack.vim.git"
-    nmap g/ :Ack!<space>
+    nmap g/ :Ack! -w <space>
     nmap g* :Ack! -w <C-R><C-W><space>
     nmap ga :AckAdd!<space>
     nmap gn :cnext<CR>
@@ -43,26 +31,17 @@ Bundle "git://github.com/mileszs/ack.vim.git"
     nmap gq :ccl<CR>
     nmap gl :cwindow<CR>
 
-" Markdown syntax highlighting
-  Bundle "git://github.com/tpope/vim-markdown.git"
-    augroup mkd
-      autocmd BufNewFile,BufRead *.mkd      set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
-      autocmd BufNewFile,BufRead *.md       set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
-      autocmd BufNewFile,BufRead *.markdown set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
-    augroup END
-
-" Markdown preview to quickly preview markdown files
-  Bundle "git://github.com/maba/vim-markdown-preview.git"
-  map <buffer> <Leader>mp :Mm<CR>
-
 
 
 " NERDTree for project drawer
   Bundle "git://github.com/scrooloose/nerdtree.git"
     let NERDTreeHijackNetrw = 0
+    let NERDTreeShowHidden=1
 
     nmap gt :NERDTreeToggle<CR>
-    nmap g :NERDTree \| NERDTreeToggle \| NERDTreeFind<CR>
+    nmap g :NERDTree \| NERDTreeToggle \| NERDTreeFind<CR>
+    autocmd VimEnter * NERDTree
+    autocmd VimEnter * wincmd p
 
 
 
@@ -87,7 +66,7 @@ Bundle "git://github.com/mileszs/ack.vim.git"
 
 
 " showmarks_include
-let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+" let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 
@@ -95,76 +74,113 @@ let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 filetype plugin indent on     " required!
 
 
-" ----------------------------------------------------------------------------
-"  Text Formatting
-" ----------------------------------------------------------------------------
-
-set autoindent             " automatic indent new lines
-set smartindent            " be smart about it
-" inoremap # X<BS>#
-set nowrap                 " do not wrap lines
-set softtabstop=2          " yep, two
-set shiftwidth=2           " ..
-set tabstop=2
-set expandtab              " expand tabs to spaces
-set smarttab             " fuck tabs
-set formatoptions+=n       " support for numbered/bullet lists
-"set textwidth=80           " wrap at 80 chars by default
-set virtualedit=block      " allow virtual edit in visual block ..
-
-" ----------------------------------------------------------------------------
-"  Remapping
-" ----------------------------------------------------------------------------
-
 " lead with ,
 let mapleader = ","
 
 " exit to normal mode with 'jj'
 inoremap jj <ESC>
-"redo with U
-nmap U :redo<cr>
+
+
+
+"--------------------------
 
 "easy wrap toggling
 nmap <Leader>w :set wrap!<cr>
 nmap <Leader>W :set nowrap<cr>
 
-"close all other windows in the current tab
-"nmap gW :only<cr>
+" don't wrap by default
+  set nowrap
 
-"go to previous buffer with g-enter
-"nmap g
+" show commands as we type them
+  set showcmd
 
-"rails shortcuts
-nmap gs :e db/schema.rb<cr>
-nmap gr :e config/routes.rb<cr>
+" highlight matching brackets
+  set showmatch
 
-" textmate-like insertions for <%= %> and <% %>
-imap <C-z> <lt>%=  %><Left><Left><Left>
-imap <C-x> <lt>%  %><Left><Left><Left>
+" scroll the window when we get near the edge
+  set scrolloff=4 sidescrolloff=10
 
-" Yank from the cursor to the end of the line, to be consistent with C and D.
-"nnoremap Y y$
+" use 2 spaces for tabs
+  set expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  set smarttab
 
-" select the lines which were just pasted
-"nnoremap vv `[V`]
+" enable line numbers, and don't make them any wider than necessary
+  set number numberwidth=2
 
-" handy macro expansion
-abbrev lidsa Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-abbrev hte the
+" show the first match as search strings are typed
+  set incsearch
 
-" insert blank lines without going into insert mode
-" nmap go o<esc>
-" nmap gO O<esc>
+" highlight the search matches
+  set hlsearch
+
+" searching is case insensitive when all lowercase
+  set ignorecase smartcase
+
+" assume the /g flag on substitutions to replace all matches in a line
+  set gdefault
+
+
+" pick up external file modifications
+  set autoread
+
+" don't abandon buffers when unloading
+  set hidden
+
+" match indentation of previous line
+  set autoindent
+
+" don't blink the cursor
+  set guicursor=a:blinkon0
+
+" show current line info (current/total)
+  set ruler rulerformat=%=%l/%L
+
+" show status line
+  set laststatus=2
+
+" When lines are cropped at the screen bottom, show as much as possible
+  set display=lastline
+
+" flip the default split directions to sane ones
+  set splitright
+  set splitbelow
+
+" don't beep for errors
+  set visualbell
+
+" make backspace work in insert mode
+  set backspace=indent,eol,start
+
+" highlight trailing whitespace
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+  set list
+
+" have the mouse enabled all the time
+  set mouse=a
+
+" use tab-complete to see a list of possiblities when entering commands
+  set wildmode=list:longest,full
+
+" allow lots of tabs
+  set tabpagemax=20
+
+" remember last position in file
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+
+" Thorfile, Rakefile, Vagrantfile, and Gemfile are Ruby
+  au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+
+" JSON is JS
+  au BufNewFile,BufRead *.json set ai filetype=javascript
+
+" different color for each paren pairs
+let vimclojure#ParenRainbow  = 1
 
 " mapping the jumping between splits. Hold control while using vim nav.
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
-
-" flip the default split directions to sane ones
-set splitright
-set splitbelow
 
 " buffer resizing mappings (shift + arrow key)
 nnoremap <S-Up> <c-w>-
@@ -174,59 +190,4 @@ nnoremap <S-Right> <c-w><
 
 " reindent the entire file
 map <Leader>I gg=G``<cr>
-
-" clean up trailing whitespace
-map <Leader>c :%s/\s\+$<cr>   
-
-" map spacebar to clear search highlight
-" nnoremap <Leader><space> :noh<cr>
-
-
-" reflow paragraph with Q in normal and visual mode
-" nnoremap Q gqap
-" vnoremap Q gq
-
-" sane movement with wrap turned on
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-nnoremap <Down> gj
-nnoremap <Up> gk
-vnoremap <Down> gj
-vnoremap <Up> gk
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
-
-" ----------------------------------------------------------------------------
-"  UI
-" ----------------------------------------------------------------------------
-
-set ruler rulerformat=%=%l/%L " show the cursor position all the time
-set showcmd                " display commands as we type them
-" set nolazyredraw           " turn off lazy redraw
-set number                 " line numbers
-set wildmenu               " turn on wild menu
-set wildmode=list:longest,full
-set ch=2                   " command line height
-set backspace=2            " allow backspacing over everything in insert mode
-set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
-set shortmess=filtIoOA     " shorten messages
-set report=0               " tell us about changes
-set nostartofline          " don't jump to the start of line when scrolling
-
-
-" ----------------------------------------------------------------------------
-" Visual Cues
-" ----------------------------------------------------------------------------
-
-set showmatch              " brackets/braces that is
-set mat=5                  " duration to show matching brace (1/10 sec)
-set incsearch              " do incremental searching
-set laststatus=2           " always show the status line
-set ignorecase             " ignore case when searching
-set hlsearch               " highlight searches
-set visualbell             " shut the fuck up
-
-
 
