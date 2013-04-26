@@ -6,9 +6,9 @@
 . script/homebrew
 
 # move to script/rbenv
-rbenv install 1.9.3-p194
-rbenv global 1.9.3-p194
-rbenv rehash
+#rbenv install 1.9.3-p194
+#rbenv global 1.9.3-p194
+#rbenv rehash
 
 rake install
 
