@@ -24,8 +24,13 @@ Bundle 'gmarik/vundle'
 " Bundle 'tpope/vim-rails.git'
 " Bundle 'mileszs/ack.vim'
 " Bundle 'scrooloose/nerdtree'
-Bundle 'git://git.wincent.com/command-t.git'
-let g:CommandTMatchWindowAtTop=1 " show window at top
+"Bundle 'git://git.wincent.com/command-t.git'
+"let g:CommandTMatchWindowAtTop=1 " show window at top
+
+Bundle 'kien/ctrlp.vim'
+map <Leader>t <c-p>
+
+
 Bundle 'tpope/vim-fugitive'
 
 " ACK
@@ -47,8 +52,6 @@ let NERDTreeShowHidden=1
 
 nmap gt :NERDTreeToggle<CR>
 nmap g :NERDTree \| NERDTreeToggle \| NERDTreeFind<CR>
-" autocmd VimEnter * NERDTree
-" autocmd VimEnter * wincmd p
 
 
 
@@ -252,4 +255,17 @@ vmap <c-tab> <c-o>:tabnext<cr>
 nmap <c-s-tab> :tabprevious<cr>
 imap <c-s-tab> <c-o>:tabprevious<cr>
 vmap <c-s-tab> <c-o>:tabprevious<cr>
+
+" " more natural movement with wrap on
+" nnoremap j gj
+" nnoremap k gk
+" vnoremap j gj
+" vnoremap k gk
+
+" " Easy splitted window navigation
+" noremap <C-h>  <C-w>h
+" noremap <C-j>  <C-w>j
+" noremap <C-k>  <C-w>k
+" noremap <C-l>  <C-w>l
+"
 

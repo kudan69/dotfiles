@@ -43,7 +43,8 @@ alias pg-up='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server
 alias pg-down='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
 # redis
-alias redis-up="redis-server $ZSH/redis/redis.conf > /dev/null &"
+# alias redis-up="redis-server $ZSH/redis/redis.conf > /dev/null &"
+alias redis-up="redis-server /usr/local/etc/redis.conf"
 alias redis-down='killall redis-server'
 
 # ruby
