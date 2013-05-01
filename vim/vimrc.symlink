@@ -29,6 +29,9 @@ Bundle 'gmarik/vundle'
 
 Bundle 'kien/ctrlp.vim'
 map <Leader>t <c-p>
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_max_files = 0
+let g:ctrlp_max_height = 20
 
 
 Bundle 'tpope/vim-fugitive'
