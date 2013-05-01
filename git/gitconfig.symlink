@@ -60,3 +60,5 @@
 [credential]
   helper = osxkeychain
   help = osxkeychain
+[push]
+	default = simple
