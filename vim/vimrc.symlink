@@ -30,8 +30,8 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 map <Leader>t <c-p>
 let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_max_files = 0
-let g:ctrlp_max_height = 20
+" let g:ctrlp_max_files = 0
+" let g:ctrlp_max_height = 20
 
 
 Bundle 'tpope/vim-fugitive'
@@ -46,7 +46,9 @@ nmap gp :cprev<CR>
 nmap gq :ccl<CR>
 nmap gl :cwindow<CR>
 
-
+" Bundle "git://github.com/itspriddle/vim-marked.git"
+Bundle 'itspriddle/vim-marked'
+" nmap gm :MarkedOpen
 
 " NERDTree for project drawer
 Bundle "git://github.com/scrooloose/nerdtree.git"
@@ -104,6 +106,13 @@ let g:surround_61 = "<%= \r %>"
 Bundle "git://github.com/tpope/vim-commentary.git"
 Bundle "git://github.com/airblade/vim-gitgutter.git"
 
+" Taglist-plus for navigation by tags using CTags
+  Bundle "git://github.com/int3/vim-taglist-plus.git"
+    let Tlist_WinWidth='auto'
+
+    map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+    map <C-\> :tnext<CR>
+    map <Leader>. :TlistToggle<CR>
 
 filetype plugin indent on     " required!
 
