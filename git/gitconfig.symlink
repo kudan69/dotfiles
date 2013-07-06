@@ -14,7 +14,8 @@
   st = status
   lg = log --pretty=format:'%Cred%h%Creset -%C)yellow)%d%Creset %s %Cgreen(%cr)%Creset' --graph --abbrev-commit --date=relative
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-
+  standup = log --since yesterday
+  ready = rebase -i @{u}
 #  promote = !$ZSH/bin/git-promote
   wtf     = !$ZSH/bin/git-wtf
 #  rank-contributers = !$ZSH/bin/git-rank-contributers
