@@ -4,6 +4,7 @@
 
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
+export RBENV_ROOT=/usr/local/var/rbenv
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/projects
@@ -13,7 +14,12 @@ export ARCHFLAGS='-arch x86_64'
 
 # source every .zsh file in this rep
 # Don't load completion.zsh yet.  For some reason this needs to be done last.
-for config_file ($ZSH/**/*.zsh) [[ "$(basename $config_file)" == "completion.zsh" ]] ||  source $config_file
+#for config_file ($ZSH/**/*.zsh) [[ "$(basename $config_file)" == "completion.zsh" ]] ||  source $config_file
+source $HOME/.dotfiles/zsh/aliases.zsh
+source $HOME/.dotfiles/zsh/config.zsh
+#source $HOME/.dotfiles/zsh/functions.zsh
+source $HOME/.dotfiles/zsh/prompt.zsh
+#source $HOME/.dotfiles/zsh/window.zsh
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
@@ -27,7 +33,7 @@ autoload -U compinit
 compinit
 
 # load every completion after autocomplete loads
-for config_file ($ZSH/**/completion.zsh) source $config_file
+#for config_file ($ZSH/**/completion.zsh) source $config_file
 
 
 
@@ -35,6 +41,4 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$ZSH/b
 
 #export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
-# export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-#eval "$(rbenv init -)"
