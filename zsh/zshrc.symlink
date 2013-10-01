@@ -16,9 +16,9 @@ export ARCHFLAGS='-arch x86_64'
 # Don't load completion.zsh yet.  For some reason this needs to be done last.
 #for config_file ($ZSH/**/*.zsh) [[ "$(basename $config_file)" == "completion.zsh" ]] ||  source $config_file
 source $HOME/.dotfiles/zsh/aliases.zsh
-source $HOME/.dotfiles/zsh/config.zsh
+source $HOME/.dotfiles/zsh/prompt2.zsh
+#source $HOME/.dotfiles/zsh/config.zsh
 #source $HOME/.dotfiles/zsh/functions.zsh
-source $HOME/.dotfiles/zsh/prompt.zsh
 #source $HOME/.dotfiles/zsh/window.zsh
 
 # use .localrc for SUPER SECRET CRAP that you don't
