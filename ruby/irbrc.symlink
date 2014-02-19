@@ -34,9 +34,6 @@ def me
   User.find_by_login('jkahne')
 end
 
-def r
-  reload!
-end
 
 class Object
   def my_methods(include_inherited = false)
