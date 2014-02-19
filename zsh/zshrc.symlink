@@ -1,11 +1,17 @@
 
-# add npm to path
-# export PATH=/usr/local/share/npm/bin:$PATH
-
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 export RBENV_ROOT=/usr/local/var/rbenv
 export EDITOR='vim'
+
+HISTSIZE=600
+SAVEHIST=600
+HISTFILE=~/.zsh_history
+
+#this is new stuff
+export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabagacad
+
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/projects
