@@ -9,25 +9,26 @@ zelda () {
     battery="$(pmset -g ps | awk 'NR==2' | perl -pe 's/.*?(\d+)%.*/\1/')"
 
     if [[ $battery -lt 16 ]]; then
-      echo "#[blink]♥#[noblink]♡♡♡♡♡"
+      echo "%{\e[0;31m%}%{\e[5;31m%}♥%{\e[0m%}%{\e[0;31m%}♡♡♡♡♡%{\e[0m%}"
     elif [[ $battery -lt 32 ]]; then
-      echo "♥♡♡♡♡♡"
+      echo "%{\e[0;31m%}♥♡♡♡♡♡%{\e[0m%}"
     elif [[ $battery -lt 48 ]]; then
-      echo "♥♥♡♡♡♡"
+      echo "%{\e[0;31m%}♥♥♡♡♡♡%{\e[0m%}"
     elif [[ $battery -lt 64 ]]; then
-      echo "♥♥♥♡♡♡"
+      echo "%{\e[0;31m%}♥♥♥♡♡♡%{\e[0m%}"
     elif [[ $battery -lt 80 ]]; then
-      echo "♥♥♥♥♡♡"
+      echo "%{\e[0;31m%}♥♥♥♥♡♡%{\e[0m%}"
     elif [[ $battery -lt 96 ]]; then
-      echo "♥♥♥♥♥♡"
+      echo "%{\e[0;31m%}♥♥♥♥♥♡%{\e[0m%}"
     else
-      echo "♥♥♥♥♥♥"
+      echo "%{\e[0;31m%}♥♥♥♥♥♥%{\e[0m%}"
     fi
   fi
 }
 
 set_prompt () {
-  export PROMPT="$(zelda)$(git_prompt_info)"$' %{\e[0;36m%}%2/%{\e[0m%}/ ᗌ '
+  export PROMPT=$'%{\e[0;33m%}%2/%{\e[0m%}/'"$(git_prompt_info)"$' ᗌ '
+  export RPROMPT=$(zelda)
 }
 
 # gets called every time to display

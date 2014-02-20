@@ -8,7 +8,12 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias .......="cd ../../../../../.."
 alias dash="cd /Users/jkahne/projects/ss;watch -n7 bundle exec bin/ss dashboard"
+alias rt="ctags -R *"
 
+# grc overides for ls
+#   Made possible through contributions from generous benefactors like
+#   `brew install coreutils`
+alias l="ls -AFG"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"

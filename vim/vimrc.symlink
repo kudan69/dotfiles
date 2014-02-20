@@ -106,13 +106,14 @@ let g:surround_61 = "<%= \r %>"
 Bundle "git://github.com/tpope/vim-commentary.git"
 Bundle "git://github.com/airblade/vim-gitgutter.git"
 
+Bundle "git://github.com/xolox/vim-misc"
 Bundle "git://github.com/xolox/vim-easytags"
+
+Bundle "git://github.com/michaeljsmith/vim-indent-object"
 
 " Taglist-plus for navigation by tags using CTags
   Bundle "git://github.com/int3/vim-taglist-plus.git"
     let Tlist_WinWidth='auto'
-    set tags=./tags,tags;$HOME
-    map <Leader>rrt rtags --vi -a -f tags -R app -R lib -R script -R spec<CR><CR>
     map <Leader>rt :!ctags *<CR><CR>
     map <C-\> :tnext<CR>
     map <Leader>. :TlistToggle<CR>
