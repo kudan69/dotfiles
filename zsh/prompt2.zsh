@@ -27,7 +27,7 @@ zelda () {
 }
 
 set_prompt () {
-  export PROMPT=$'%{\e[0;33m%}%2/%{\e[0m%}/'"$(git_prompt_info)"$' ᗌ '
+  export PROMPT=$'%{\e[0;41m%}%2/%{\e[0m%}/'"$(git_prompt_info)"$' ᗌ '
   export RPROMPT=$(zelda)
 }
 
