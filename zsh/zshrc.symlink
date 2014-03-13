@@ -3,8 +3,8 @@ export ZSH=$HOME/.dotfiles
 export RBENV_ROOT=/usr/local/var/rbenv
 export EDITOR='vim'
 
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=20000
+SAVEHIST=20000
 HISTFILE=~/.zsh_history
 
 #this is new stuff
