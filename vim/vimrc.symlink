@@ -46,9 +46,9 @@ Bundle 'tpope/vim-fugitive'
 " nmap gq :ccl<CR>
 " nmap gl :cwindow<CR>
 
-" Bundle "git://github.com/itspriddle/vim-marked.git"
-Bundle 'itspriddle/vim-marked'
-" nmap gm :MarkedOpen
+Bundle "git://github.com/itspriddle/vim-marked.git"
+map gm :MarkedOpen<CR>
+
 
 " NERDTree for project drawer
 Bundle "git://github.com/scrooloose/nerdtree.git"
