@@ -9,17 +9,17 @@ zelda () {
     battery="$(pmset -g ps | awk 'NR==2' | perl -pe 's/.*?(\d+)%.*/\1/')"
 
     if [[ $battery -lt 16 ]]; then
-      echo "%{\e[0;31m%}%{\e[5;31m%}♥%{\e[0m%}%{\e[0;31m%}♡♡♡♡♡%{\e[0m%}"
+      echo "%{\e[5;31m%}♥%{\e[0m%}♡♡♡♡♡"
     elif [[ $battery -lt 32 ]]; then
-      echo "%{\e[0;31m%}♥♡♡♡♡♡%{\e[0m%}"
+      echo "%{\e[0;31m%}♥%{\e[0m%}♡♡♡♡♡"
     elif [[ $battery -lt 48 ]]; then
-      echo "%{\e[0;31m%}♥♥♡♡♡♡%{\e[0m%}"
+      echo "%{\e[0;31m%}♥♥%{\e[0m%}♡♡♡♡"
     elif [[ $battery -lt 64 ]]; then
-      echo "%{\e[0;31m%}♥♥♥♡♡♡%{\e[0m%}"
+      echo "%{\e[0;31m%}♥♥♥%{\e[0m%}♡♡♡"
     elif [[ $battery -lt 80 ]]; then
-      echo "%{\e[0;31m%}♥♥♥♥♡♡%{\e[0m%}"
+      echo "%{\e[0;31m%}♥♥♥♥%{\e[0m%}♡♡"
     elif [[ $battery -lt 96 ]]; then
-      echo "%{\e[0;31m%}♥♥♥♥♥♡%{\e[0m%}"
+      echo "%{\e[0;31m%}♥♥♥♥♥%{\e[0m%}♡"
     else
       echo "%{\e[0;31m%}♥♥♥♥♥♥%{\e[0m%}"
     fi
@@ -27,7 +27,11 @@ zelda () {
 }
 
 set_prompt () {
+  # if [[ -n $SSH_CONNECTION ]]; then
+  #   export PROMPT=$'%m:%3~%{\e[0;41m%}%2/%{\e[0m%}/'"$(git_prompt_info)"$' ᗌ '
+  # else
   export PROMPT=$'%{\e[0;41m%}%2/%{\e[0m%}/'"$(git_prompt_info)"$' ᗌ '
+  # fi
   export RPROMPT=$(zelda)
 }
 
