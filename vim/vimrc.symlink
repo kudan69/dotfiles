@@ -33,18 +33,23 @@ let g:ctrlp_match_window_bottom = 0
 " let g:ctrlp_max_files = 0
 " let g:ctrlp_max_height = 20
 
+Bundle 'tacahiroy/ctrlp-funky'
+let g:ctrlp_extensions = ['funky']
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 Bundle 'tpope/vim-fugitive'
 
 " ACK
-" Bundle "git://github.com/mileszs/ack.vim.git"
-" nmap g/ :Ack! -w <space>
-" nmap g* :Ack! -w <C-R><C-W><space>
-" nmap ga :AckAdd!<space>
-" nmap gn :cnext<CR>
-" nmap gp :cprev<CR>
-" nmap gq :ccl<CR>
-" nmap gl :cwindow<CR>
+ Bundle "git://github.com/mileszs/ack.vim.git"
+ nmap g/ :Ack! -w <space>
+ nmap g* :Ack! -w <C-R><C-W><space>
+ nmap ga :AckAdd!<space>
+ nmap gn :cnext<CR>
+ nmap gp :cprev<CR>
+ nmap gq :ccl<CR>
+ nmap gl :cwindow<CR>
 
 Bundle "git://github.com/itspriddle/vim-marked.git"
 map gm :MarkedOpen<CR>
@@ -197,6 +202,10 @@ set wildmode=list:longest,full
 
 " allow lots of tabs
 set tabpagemax=20
+
+
+execute "set colorcolumn=" . join(range(81,335), ',')
+highlight ColorColumn ctermbg=0
 
 " remember last position in file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
