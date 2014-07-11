@@ -282,16 +282,16 @@ imap <c-s-tab> <c-o>:tabprevious<cr>
 vmap <c-s-tab> <c-o>:tabprevious<cr>
 
 " " more natural movement with wrap on
-" nnoremap j gj
-" nnoremap k gk
-" vnoremap j gj
-" vnoremap k gk
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " " Easy splitted window navigation
-" noremap <C-h>  <C-w>h
-" noremap <C-j>  <C-w>j
-" noremap <C-k>  <C-w>k
-" noremap <C-l>  <C-w>l
+noremap <C-h>  <C-w>h
+noremap <C-j>  <C-w>j
+noremap <C-k>  <C-w>k
+noremap <C-l>  <C-w>l
 
 
 
