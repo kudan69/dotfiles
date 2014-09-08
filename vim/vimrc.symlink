@@ -156,7 +156,7 @@ set hlsearch
 set ignorecase smartcase
 
 " assume the /g flag on substitutions to replace all matches in a line
-set gdefault
+"set gdefault
 
 
 " pick up external file modifications
@@ -292,7 +292,8 @@ noremap <C-l>  <C-w>l
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  set grepformat=%f:%1:%c%m
 
   let g:ackprg = 'ag --nogroup --nocolor --column'
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
