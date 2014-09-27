@@ -1,0 +1,29 @@
+#brew cask will allow you to install several apps not
+#provided by the app store
+brew install caskroom/cask/brew-cask
+
+#Install desired apps
+brew cask install iterm2
+brew cask install ccleaner
+brew cask install google-chrome
+brew cask install google-drive
+brew cask install dropbox
+brew cask install firefox
+brew cask install caffeine
+brew cask install onepassword
+brew cask install hipchat
+brew cask install kindle
+brew cask install nvalt
+brew cask install flux
+brew cask install openoffice
+brew cask install virtualbox
+brew cask install alfred
+
+#link alfred to look at cask folder so these apps
+#show when doing a search
+brew cask alfred link
+
+#cleanup
+brew cask cleanup
+brew cleanup
+
