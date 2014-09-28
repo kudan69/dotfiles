@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# uninstalls things.
+
+. script/uninstall_cask
+. script/uninstall_homebrew

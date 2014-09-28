@@ -1,0 +1,22 @@
+# Install desired apps
+brew cask zap iterm2
+brew cask zap ccleaner
+brew cask zap google-chrome
+brew cask zap google-drive
+brew cask zap dropbox
+brew cask zap firefox
+brew cask zap caffeine
+brew cask zap onepassword
+brew cask zap hipchat
+brew cask zap kindle
+brew cask zap nvalt
+brew cask zap flux
+brew cask zap openoffice
+brew cask zap virtualbox
+brew cask zap sublime-text
+brew cask zap alfred
+
+# Clean up cached files
+brew cask cleanup
+brew cleanup
+
