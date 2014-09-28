@@ -8,11 +8,13 @@
 # Check for Homebrew
 if test ! $(which brew)
 then
-  echo "  x You should probably install Homebrew first:"
-  echo "    https://github.com/mxcl/homebrew/wiki/installation"
-  exit
+  echo "Install XCode Command Line Tools:"
+  xcode-select --install
+  echo "Install Homebrew"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo "Now you have Homebrew and are ready to rock and roll."
 else
-  echo "  + Homebrew found."
+  echo "Cool you have Homebrew time to have some fun now"
 fi
 
 # Make sure we’re using the latest Homebrew
@@ -21,20 +23,36 @@ brew update
 # Upgrade any already-installed formulae
 brew upgrade
 
+# Install the brew packages you want
+brew install ack
+brew install the_silver_searcher
+brew install ctags
+brew install htmldoc
+brew install jasper
+brew install libtiff
+brew install ossp-uuid
+brew install redis
+brew install clamav
+brew install ghostscript
+brew install imagemagick
+brew install jpeg
+brew install little-cms
+brew install pkg-config
+brew install readline
+brew install pidof
+brew install wget
+brew install macvim
 
-# Install grc and coreutils
-#brew install grc coreutils
+# Install git and hub(Hub is a github specific thing allowing for things like pull-requests)
+brew install git
+brew install hub
 
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
 echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-brew install findutils
 
-brew install rbenv
-brew install rbenv-gemset
-brew install ruby-build
-#brew install postgresql
+# Install Postgres
+brew install postgresql
 echo "run 'brew info postgresql' to see postgresql installation instructions."
 echo "typically, you'll want to do:"
 echo "initdb /usr/local/var/postgres -E utf8"
@@ -45,30 +63,5 @@ echo " launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 echo "to start manually:"
 echo " pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 
-# or maybe with 
-#Success. You can now start the database server using:
-#
-#    postgres -D /usr/local/var/postgres
-#or
-#    pg_ctl -D /usr/local/var/postgres -l logfile start
-
-
-
-
-brew install ack
-brew install tree
-brew install webkit2png
-
-#brew install libiconv 
-brew install imagemagick 
-brew install libpng 
-brew install cmake 
-brew install ghostscript 
-brew install jasper 
-brew install redis 
-brew install ctags 
-
-
+# Clean up cached install files
 brew cleanup
-
-
