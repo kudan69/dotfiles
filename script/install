@@ -5,8 +5,8 @@
 # Assume everyone's on OS X and run Homebrew (*nix-ers beware)
 . script/homebrew
 . script/cask
-. script/zshell
 . script/rbenv
+. script/zshell
 
 #rake install
 
