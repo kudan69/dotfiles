@@ -47,8 +47,6 @@ don't use, and build on what you do use.
 
 There's a few special files in the hierarchy.
 
-- **bin/**: Anything in `bin/` will get added to your `$PATH` and be made
-  available everywhere.
 - **topic/\*.zsh**: Any files ending in `.zsh` get loaded into your
   environment.
 - **topic/\*.symlink**: Any files ending in `*.symlink` get symlinked into
