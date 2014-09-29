@@ -41,6 +41,7 @@ brew install pkg-config
 brew install readline
 brew install pidof
 brew install wget
+brew install pow
 brew install macvim
 
 # Install git and hub(Hub is a github specific thing allowing for things like pull-requests)
