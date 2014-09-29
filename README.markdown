@@ -29,14 +29,6 @@ which sets up a few paths that'll be different on your particular machine.
 You'll also want to change `git/gitconfig.symlink`, which will set you up as
 committing as me. You probably don't want that.
 
-## topical
-
-Everything's built around topic areas. If you're adding a new area to your
-forked dotfiles — say, "Java" — you can simply add a `java` directory and put
-files in there. Anything with an extension of `.zsh` will get automatically
-included into your shell. Anything with an extension of `.symlink` will get
-symlinked without extension into `$HOME` when you run `rake install`.
-
 ## uninstall
 
 Run this:
@@ -45,6 +37,14 @@ Run this:
 cd ~/.dotfiles
 rake uninstall
 ```
+
+## topical
+
+Everything's built around topic areas. If you're adding a new area to your
+forked dotfiles — say, "Java" — you can simply add a `java` directory and put
+files in there. Anything with an extension of `.zsh` will get automatically
+included into your shell. Anything with an extension of `.symlink` will get
+symlinked without extension into `$HOME` when you run `rake install`.
 
 ## what's inside
 
