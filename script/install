@@ -10,4 +10,4 @@
 
 #rake install
 
-#. osx/set-defaults.sh
+. osx/set-defaults.sh
