@@ -1,1 +1,0 @@
-/Users/jkahne/projects/dotfiles/vim/vim.symlink
