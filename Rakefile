@@ -1,7 +1,24 @@
 require 'rake'
+require 'fileutils'
+
+def git_clone(repo, target)
+  path = translate_path(target)
+  puts path
+  FileUtils.rm_rf(path) if File.exists?(path)
+  `git clone ""#{repo}"" "#{target}"`
+end
+
+def self.translate_path(path)
+  if path[0].chr === '~'
+    path[0] = ENV['HOME']
+  end
+  path
+end
 
 desc "Hook our dotfiles into system-standard positions."
 task :install do
+  puts "#{`script/install`}"
+
   linkables = Dir.glob('*/**{.symlink}', File::FNM_DOTMATCH)
 
   skip_all = false
@@ -32,9 +49,11 @@ task :install do
     end
     `ln -s "$PWD/#{linkable}" "#{target}"`
   end
+  Rake::Task['vundle'].execute
 end
 
 task :uninstall do
+  puts "#{`script/uninstall`}"
 
   Dir.glob('**/*.symlink').each do |linkable|
 
@@ -45,13 +64,25 @@ task :uninstall do
     if File.symlink?(target)
       FileUtils.rm(target)
     end
-    
+
     # Replace any backups made during installation
     if File.exists?("#{ENV["HOME"]}/.#{file}.backup")
-      `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"` 
+      `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"`
     end
 
   end
+end
+
+desc "Install vundle for vim plugins"
+task :vundle do
+  target = "#{ENV["HOME"]}/.vim/vundle.git"
+  git_clone('http://github.com/gmarik/vundle.git', target)
+
+  puts "Running BundleClean to clean up any possible lyniced up stuff from a previous install."
+  `vim +BundleClean +qall`
+  puts "Running BundleInstall to install plugins...this will take a couple minutes."
+  `vim +BundleInstall +qall`
+  puts "vim plugins installed."
 end
 
 task :default => 'install'
