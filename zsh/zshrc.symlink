@@ -16,7 +16,7 @@ plugins=(brew rails git ruby rbenv heroku zsh_reload sublime github bundler comm
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/zsh/aliases.zsh
-source $HOME/zsh-git-prompt/zshrc.sh
+source $HOME/.dotfiles/zsh/zsh-git-prompt/zshrc.sh
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin"
 
