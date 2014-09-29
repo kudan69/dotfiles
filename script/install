@@ -7,7 +7,4 @@
 . script/cask
 . script/rbenv
 . script/zshell
-
-#rake install
-
 . osx/set-defaults.sh
