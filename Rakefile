@@ -17,7 +17,7 @@ end
 
 desc "Hook our dotfiles into system-standard positions."
 task :install do
-  puts "#{`script/install`}"
+  exec("script/install")
 
   linkables = Dir.glob('*/**{.symlink}', File::FNM_DOTMATCH)
 
@@ -53,7 +53,7 @@ task :install do
 end
 
 task :uninstall do
-  puts "#{`script/uninstall`}"
+  exec("script/uninstall")
 
   Dir.glob('**/*.symlink').each do |linkable|
 
