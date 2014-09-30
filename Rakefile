@@ -15,9 +15,19 @@ def self.translate_path(path)
   path
 end
 
-desc "Hook our dotfiles into system-standard positions."
+desc "Install"
 task :install do
+  Rake::Task[:install_plugins].execute
+  Rake::Task[:install_symlinks].execute
+end
+
+desc "Install all plugins"
+task :install_plugins do
   exec("script/install")
+end
+
+desc "Hook our dotfiles into system-standard positions."
+task :install_symlinks do
 
   linkables = Dir.glob('*/**{.symlink}', File::FNM_DOTMATCH)
 
@@ -49,7 +59,7 @@ task :install do
     end
     `ln -s "$PWD/#{linkable}" "#{target}"`
   end
-  Rake::Task['vundle'].execute
+  Rake::Task[:vundle].execute
 end
 
 task :uninstall do
@@ -85,4 +95,4 @@ task :vundle do
   puts "vim plugins installed."
 end
 
-task :default => 'install'
+task default: :install
