@@ -17,7 +17,9 @@ Run this:
 ```sh
 git clone https://github.com/dtkocher/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-rake install
+rake #to install apps/plugins and do symlinking
+rake install_plugins #to install just apps/plugins
+rake install_symlinks #to just do the symlinking
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
