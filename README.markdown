@@ -17,9 +17,10 @@ Run this:
 ```sh
 git clone https://github.com/dtkocher/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-rake #to install apps/plugins and do symlinking
+rake #to install apps/plugins, do symlinking, and setup vim plugins
 rake install_plugins #to install just apps/plugins
 rake install_symlinks #to just do the symlinking
+rake install_vundle #to just install vim plugins
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
@@ -37,7 +38,9 @@ Run this:
 
 ```sh
 cd ~/.dotfiles
-rake uninstall
+rake uninstall #to uninstall apps/plugins/cached files from apps and do take away symlinking
+rake uninstall_plugins #to uninstall just apps/plugins/cached files
+rake uninstall_symlinks #to just undo the symlinking
 ```
 
 ## topical
