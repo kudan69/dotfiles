@@ -31,7 +31,6 @@ brew install htmldoc
 brew install jasper
 brew install libtiff
 brew install ossp-uuid
-brew install redis
 brew install clamav
 brew install ghostscript
 brew install imagemagick
@@ -54,15 +53,21 @@ echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH.
 
 # Install Postgres
 brew install postgresql
-echo "run 'brew info postgresql' to see postgresql installation instructions."
-echo "typically, you'll want to do:"
-echo "initdb /usr/local/var/postgres -E utf8"
-echo "To load on login:"
-echo " mkdir -p ~/Library/LaunchAgents"
-echo " cp /usr/local/Cellar/postgresql/9.2.1/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/"
-echo " launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-echo "to start manually:"
-echo " pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+echo "run 'brew info postgresql' to see postgresql installation instructions. We will try the normal way."
+# Add Postgres to launchctl to let OS X manage the process and start when you login, this will use the default config from /usr/local/etc/redis.conf
+initdb /usr/local/var/postgres -E utf8
+mkdir -p ~/Library/LaunchAgents
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+echo "Set default user as _postgres with no password"
+createuser -a -d _postgres
+echo "Finally, verify that it’s all working by connecting: psql template1 -U _postgres"
+
+# Install redis
+brew install redis
+# Add Redis to launchctl to let OS X manage the process and start when you login, this will use the default config from /usr/local/etc/redis.conf
+ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 
 # Clean up cached install files
 brew cleanup
