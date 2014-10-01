@@ -77,6 +77,7 @@ desc "Uninstall and remove symlinks"
 task :uninstall do
   Rake::Task[:uninstall_plugins].execute
   Rake::Task[:uninstall_symlinks].execute
+  Rake::Task[:uninstall_dotfiles].execute
 end
 
 desc "Uninstall brew, apps, and plugins"
