@@ -1,8 +1,36 @@
-#!/bin/sh
-# Just copy and paste the lines below (all at once, it won't work line by line!)
-# MAKE SURE YOU ARE HAPPY WITH WHAT IT DOES FIRST! THERE IS NO WARRANTY!
-# GOT THIS FROM https://gist.github.com/mxcl/1173223
+# Uninstall each brew app we installed
+brew uninstall ack
+brew uninstall the_silver_searcher
+brew uninstall ctags
+brew uninstall htmldoc
+brew uninstall jasper
+brew uninstall libtiff
+brew uninstall ossp-uuid
+brew uninstall redis
+brew uninstall clamav
+brew uninstall ghostscript
+brew uninstall imagemagick
+brew uninstall jpeg
+brew uninstall little-cms
+brew uninstall pkg-config
+brew uninstall readline
+brew uninstall pidof
+brew uninstall wget
+brew uninstall pow
+brew uninstall macvim
+brew uninstall git
+brew uninstall hub
+brew uninstall coreutils
 
+#unload and remove postgresql
+launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+brew uninstall postgresql
+
+# Clean up cached leftovers files
+brew cleanup
+
+# Uninstall brew all together
+# GOT THIS FROM https://gist.github.com/mxcl/1173223
 function abort {
   echo "$1"
   exit 1
