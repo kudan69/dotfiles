@@ -103,4 +103,9 @@ task :uninstall_symlinks do
   end
 end
 
+desc "Remove .dotfiles"
+task :uninstall_dotfiles do
+  system("rm -rf ~/.dotfiles")
+end
+
 task default: :install
