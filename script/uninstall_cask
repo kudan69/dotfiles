@@ -1,10 +1,6 @@
 # Install desired apps
 brew cask zap iterm2
 brew cask zap ccleaner
-brew cask zap google-chrome
-brew cask zap google-drive
-brew cask zap google-hangouts
-brew cask zap dropbox
 brew cask zap firefox
 brew cask zap caffeine
 brew cask zap onepassword
@@ -13,13 +9,28 @@ brew cask zap kindle
 brew cask zap nvalt
 brew cask zap flux
 brew cask zap openoffice
-brew cask zap virtualbox
 brew cask zap sublime-text
 brew cask zap gitx
 brew cask zap github
 brew cask zap spotify
 brew cask zap anvil
 brew cask zap alfred
+
+# Uninstall these apps and corresponding files
+brew cask zap google-drive
+brew cask zap google-chrome
+brew cask zap google-hangouts
+rm -rf ~/Google\ Drive/
+rm -rf /Library/Application\ Support/Google/
+rm -rf /Library/Google/
+
+brew cask zap dropbox
+rm -rf ~/Dropbox/
+rm -rf ~/.dropbox/
+rm -rf /Library/DropboxHelperTools/
+
+brew cask zap virtualbox
+rm -rf ~/VirtualBox\ VMs/
 
 # Clean up cached files
 brew cask cleanup
