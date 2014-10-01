@@ -19,16 +19,16 @@ desc "Install"
 task :install do
   Rake::Task[:install_plugins].execute
   Rake::Task[:install_symlinks].execute
+  Rake::Task[:install_vundle].execute
 end
 
 desc "Install all plugins"
 task :install_plugins do
-  exec("script/install")
+  system("script/install")
 end
 
 desc "Hook our dotfiles into system-standard positions."
 task :install_symlinks do
-
   linkables = Dir.glob('*/**{.symlink}', File::FNM_DOTMATCH)
 
   skip_all = false
@@ -59,12 +59,33 @@ task :install_symlinks do
     end
     `ln -s "$PWD/#{linkable}" "#{target}"`
   end
-  Rake::Task[:vundle].execute
 end
 
-task :uninstall do
-  exec("script/uninstall")
+desc "Install vundle for vim plugins"
+task :install_vundle do
+  target = "#{ENV["HOME"]}/.vim/vundle.git"
+  git_clone('http://github.com/gmarik/vundle.git', target)
 
+  puts "Running BundleClean to clean up any possible lyniced up stuff from a previous install."
+  system("vim +BundleClean +qall")
+  puts "Running BundleInstall to install plugins...this will take a couple minutes."
+  system("vim +BundleInstall +qall")
+  puts "vim plugins installed."
+end
+
+desc "Uninstall and remove symlinks"
+task :uninstall do
+  Rake::Task[:uninstall_plugins].execute
+  Rake::Task[:uninstall_symlinks].execute
+end
+
+desc "Uninstall brew, apps, and plugins"
+task :uninstall_plugins do
+  system("script/uninstall")
+end
+
+desc "Remove symlinks and restore backups if exist"
+task :uninstall_symlinks do
   Dir.glob('**/*.symlink').each do |linkable|
 
     file = linkable.split('/').last.split('.symlink').last
@@ -79,20 +100,7 @@ task :uninstall do
     if File.exists?("#{ENV["HOME"]}/.#{file}.backup")
       `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"`
     end
-
   end
-end
-
-desc "Install vundle for vim plugins"
-task :vundle do
-  target = "#{ENV["HOME"]}/.vim/vundle.git"
-  git_clone('http://github.com/gmarik/vundle.git', target)
-
-  puts "Running BundleClean to clean up any possible lyniced up stuff from a previous install."
-  `vim +BundleClean +qall`
-  puts "Running BundleInstall to install plugins...this will take a couple minutes."
-  `vim +BundleInstall +qall`
-  puts "vim plugins installed."
 end
 
 task default: :install
