@@ -1,22 +1,31 @@
-# Install desired apps
-brew cask zap iterm2
-brew cask zap ccleaner
-brew cask zap firefox
+# Uninstall desired apps
 brew cask zap caffeine
-brew cask zap onepassword
-brew cask zap hipchat
-brew cask zap kindle
-brew cask zap nvalt
-brew cask zap flux
-brew cask zap openoffice
-brew cask zap sublime-text
 brew cask zap gitx
-brew cask zap github
-brew cask zap spotify
 brew cask zap anvil
-brew cask zap alfred
 
 # Uninstall these apps and corresponding files
+brew cask zap iterm2
+rm -rf ~/Library/Application\ Support/iTerm
+
+brew cask zap hipchat
+rm -rf ~/Library/Application\ Support/HipChat/
+
+brew cask zap nvalt
+rm -rf ~/Library/Application\ Support/Notational\ Data/
+rm -rf ~/Library/Application\ Support/nvALT
+
+brew cask zap flux
+rm -rf ~/Library/Application\ Support/Flux/
+
+brew cask zap openoffice
+rm -rf ~/Library/Application\ Support/OpenOffice/
+
+brew cask zap sublime-text
+rm -rf ~/Library/Application\ Support/Sublime\ Text\ 2/
+
+brew cask zap spotify
+rm -rf ~/Library/Application\ Support/Spotify/
+
 brew cask zap google-drive
 brew cask zap google-chrome
 brew cask zap google-hangouts
@@ -31,8 +40,26 @@ rm -rf /Library/DropboxHelperTools/
 
 brew cask zap virtualbox
 rm -rf ~/VirtualBox\ VMs/
+rm -rf /Library/Application\ Support/VirtualBox/
 
-# Clean up cached files
+brew cask zap firefox
+rm -rf ~/Library/Application\ Support/Firefox/
+rm -rf ~/Library/Application\ Support/Mozilla/
+
+brew cask zap github
+rm -rf ~/Library/Application\ Support/GitHub\ for\ Mac/
+
+brew cask zap onepassword
+rm -rf ~/Library/Application\ Support/1Password\ 4/
+
+brew cask zap alfred
+rm -rf ~/Library/Application\ Support/Alfred\ 2/
+
+brew cask zap ccleaner
+rm -rf ~/Library/Application\ Support/CCleaner/
+
+# Clean up cached files and uninstall cask
 brew cask cleanup
+brew uninstall --force cask
 brew cleanup
 
