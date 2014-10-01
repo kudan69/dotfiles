@@ -21,6 +21,7 @@ rake #to install apps/plugins, do symlinking, and setup vim plugins
 rake install_plugins #to install just apps/plugins
 rake install_symlinks #to just do the symlinking
 rake install_vundle #to just install vim plugins
+rake install_configs #to hook up config files for certain apps
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
