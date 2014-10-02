@@ -3,6 +3,7 @@
 brew install caskroom/cask/brew-cask
 
 # Install desired apps
+brew cask install java
 brew cask install iterm2
 brew cask install ccleaner
 brew cask install google-chrome

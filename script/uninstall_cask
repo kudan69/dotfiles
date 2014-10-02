@@ -1,4 +1,5 @@
 # Uninstall desired apps
+brew cask zap java
 brew cask zap caffeine
 brew cask zap gitx
 brew cask zap anvil
