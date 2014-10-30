@@ -26,7 +26,13 @@
 " Bundle "git://github.com/wavded/vim-stylus.git"
   Bundle "git://github.com/tpope/vim-abolish.git"
   Bundle "git://github.com/christoomey/vim-tmux-navigator.git"
+
+" In line command terminal
   Bundle "git://github.com/oplatek/Conque-Shell.git"
+    nmap ctt :ConqueTermTab zsh
+    nmap cts :ConqueTermSplit zsh
+    nmap ctvs :ConqueTermVSplit zsh
+  
 
 " Dash Searching"
   Bundle "git://github.com/rizzatti/funcoo.vim.git"
