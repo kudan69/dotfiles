@@ -2,6 +2,7 @@
 " install plugins.
 
 " Plugins requiring no additional configuration or keymaps
+  Bundle "git://github.com/vim-scripts/Color-Sampler-Pack.git"
   Bundle "git://github.com/oscarh/vimerl.git"
   Bundle "git://github.com/tpope/vim-git.git"
   Bundle "git://github.com/harleypig/vcscommand.vim.git"
@@ -17,68 +18,24 @@
   Bundle "git://github.com/ervandew/supertab.git"
   Bundle "git://github.com/tomtom/tcomment_vim.git"
   Bundle "git://github.com/michaeljsmith/vim-indent-object.git"
-  Bundle "git://github.com/vim-scripts/matchit.zip"
+  Bundle "git://github.com/tsaleh/vim-matchit.git"
   Bundle "git://github.com/kana/vim-textobj-user.git"
   Bundle "git://github.com/nelstrom/vim-textobj-rubyblock.git"
   Bundle "git://github.com/tpope/vim-repeat.git"
   Bundle "git://github.com/vim-scripts/ruby-matchit.git"
   Bundle "git://github.com/wgibbs/vim-irblack.git"
-" Bundle "git://github.com/wavded/vim-stylus.git"
-  Bundle "git://github.com/tpope/vim-abolish.git"
-  Bundle "git://github.com/christoomey/vim-tmux-navigator.git"
+  Bundle "git://github.com/bling/vim-airline"
+  " Bundle "git://github.com/brookhong/cscope.vim.git"
 
-" In line command terminal
+  Bundle "git://github.com/juvenn/mustache.vim.git"
+    " Copied from the plugin; not sure why it isn't working normally
+    au BufNewFile,BufRead *.mustache,*.handlebars,*.hbs set filetype=mustache
+
+  " In line command terminal
   Bundle "git://github.com/oplatek/Conque-Shell.git"
     nmap ctt :ConqueTermTab zsh
     nmap cts :ConqueTermSplit zsh
     nmap ctvs :ConqueTermVSplit zsh
-  
-
-" Dash Searching"
-  Bundle "git://github.com/rizzatti/funcoo.vim.git"
-  Bundle "git://github.com/rizzatti/dash.vim.git"
-    nmap <Leader>qs <Plug>DashSearch
-    nmap <Leader>qa <Plug>DashGlobalSearch
-
-
-" CtrlP - with FuzzyFinder compatible keymaps
-  Bundle "git://github.com/kien/ctrlp.vim.git"
-    nnoremap <Leader>b :<C-U>CtrlPBuffer<CR>
-    nnoremap <Leader>t :<C-U>CtrlP<CR>
-    nnoremap <Leader>T :<C-U>CtrlPTag<CR>
-    let g:ctrlp_prompt_mappings = {
-        \ 'PrtSelectMove("j")':   ['<down>'],
-        \ 'PrtSelectMove("k")':   ['<up>'],
-        \ 'AcceptSelection("h")': ['<c-j>'],
-        \ 'AcceptSelection("v")': ['<c-k>', '<RightMouse>'],
-        \ }
-    " respect the .gitignore
-    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
-
-" Compile and deploy Arduino (*.pde) sketches directly from Vim
-  Bundle "git://github.com/smerrill/vim-arduino.git"
-    au BufNewFile,BufRead *.pde set filetype=arduino
-    au BufNewFile,BufRead *.ino set filetype=arduino
-
-" Go
-  Bundle "git://github.com/jnwhiteh/vim-golang.git"
-    au BufNewFile,BufRead *.go set filetype=go
-
-" Slim
-  Bundle "git://github.com/slim-template/vim-slim.git"
-    au BufNewFile,BufRead *.slim set filetype=slim
-
-" Less
-  Bundle "git://github.com/groenewege/vim-less.git"
-    au BufNewFile,BufRead *.less set filetype=less
-
-" Handlebars, Mustache, and Friends
-  Bundle "git://github.com/mustache/vim-mustache-handlebars.git"
-  au  BufNewFile,BufRead *.mustache,*.handlebars,*.hbs,*.hogan,*.hulk,*.hjs set filetype=html syntax=mustache | runtime! ftplugin/mustache.vim ftplugin/mustache*.vim ftplugin/mustache/*.vim
-
-" Stylus
-  Bundle "git://github.com/wavded/vim-stylus.git"
-    au BufNewFile,BufRead *.styl set filetype=stylus
 
 " Coffee script
   Bundle "git://github.com/kchmck/vim-coffee-script.git"
@@ -86,14 +43,14 @@
 
 
 " ACK
-" Bundle "git://github.com/mileszs/ack.vim.git"
-"   nmap g/ :Ack!<space>
-"   nmap g* :Ack! -w <C-R><C-W><space>
-"   nmap ga :AckAdd!<space>
-"   nmap gn :cnext<CR>
-"   nmap gp :cprev<CR>
-"   nmap gq :ccl<CR>
-"   nmap gl :cwindow<CR>
+"  Bundle "git://github.com/mileszs/ack.vim.git"
+"    nmap g/ :Ack!<space>
+"    nmap g* :Ack! -w <C-R><C-W><space>
+"    nmap ga :AckAdd!<space>
+"    nmap gn :cnext<CR>
+"    nmap gp :cprev<CR>
+"    nmap gq :ccl<CR>
+"    nmap gl :cwindow<CR>
 
 " AG aka The Silver Searcher
   Bundle 'git://github.com/rking/ag.vim.git'
@@ -109,8 +66,20 @@
 " Tagbar for navigation by tags using CTags
   Bundle "git://github.com/majutsushi/tagbar.git"
     let g:tagbar_autofocus = 1
+    "map <Leader>:!ctags -R *<CR><CR>
     map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
     map <Leader>. :TagbarToggle<CR>
+
+
+" Ruby focused unit test (wrapped in an if-loaded because it doesn't like
+" being loaded twice)
+  if !exists(':RunRubyFocusedUnitTest')
+    Bundle "git://github.com/drewolson/ruby_focused_unit_test_vim.git"
+      nmap <Leader>ra :wa<CR> :RunAllRubyTests<CR>
+      nmap <Leader>rc :wa<CR> :RunRubyFocusedContext<CR>
+      nmap <Leader>rf :wa<CR> :RunRubyFocusedUnitTest<CR>
+      nmap <Leader>rl :wa<CR> :RunLastRubyTest<CR>
+  endif
 
 
 " Markdown syntax highlighting
@@ -154,6 +123,23 @@
     " shortcut to align text with Tabular
     map <Leader>a :Tabularize<space>
 
+
+" Fuzzy finder for quickling opening files / buffers
+  Bundle "git://github.com/clones/vim-fuzzyfinder.git"
+    let g:fuf_coveragefile_prompt = '>GoToFile[]>'
+    let g:fuf_coveragefile_exclude = '\v\~$|' .
+    \                                '\.(o|exe|dll|bak|swp|log|sqlite3|png|gif|jpg)$|' .
+    \                                '(^|[/\\])\.(hg|git|bzr|bundle)($|[/\\])|' .
+    \                                '(^|[/\\])(log|tmp|vendor|system|doc|coverage|build|generated)($|[/\\])'
+
+    let g:fuf_keyOpenTabpage = '<D-CR>'
+
+    nmap <Leader>t :FufCoverageFile<CR>
+    nmap <Leader>b :FufBuffer<CR>
+    nmap <Leader>f :FufRenewCache<CR>
+    nmap <Leader>T :FufTagWithCursorWord!<CR>
+
+
 " ZoomWin to fullscreen a particular buffer without losing others
   Bundle "git://github.com/vim-scripts/ZoomWin.git"
     map <Leader>z :ZoomWin<CR>
@@ -173,15 +159,11 @@
 " Syntastic for catching syntax errors on save
   Bundle "git://github.com/scrooloose/syntastic.git"
     let g:syntastic_enable_signs=1
-    let g:syntastic_quiet_messages = {'level': 'warning'}
-    " syntastic is too slow for haml and sass
-    let g:syntastic_mode_map = { 'mode': 'active',
-                               \ 'active_filetypes': [],
-                               \ 'passive_filetypes': ['haml','scss','sass'] }
+    let g:syntastic_quiet_warnings=1
+    let g:syntastic_disabled_filetypes = ['sass']
 
 
 " gist-vim for quickly creating gists
-  Bundle "git://github.com/mattn/webapi-vim.git"
   Bundle "git://github.com/mattn/gist-vim.git"
     if has("mac")
       let g:gist_clip_command = 'pbcopy'
@@ -207,6 +189,7 @@
     map <Leader>oj :Rjavascript<Space>
     map <Leader>os :Rstylesheet<Space>
     map <Leader>oi :Rintegration<Space>
+    map <Leader>ol :Rlayout<Space>
 
 
 " surround for adding surround 'physics'
@@ -217,6 +200,11 @@
     let g:surround_45 = "<% \r %>"
     " = to surround with output erb tag
     let g:surround_61 = "<%= \r %>"
+
+" Older
+" Clojure Highlighting"
+"  Bundle "https://github.com/vim-scripts/VimClojure.git"
+"  autocmd BufNewFile,BufRead *.clj set filetype=clojure
 
 
 " Clojure Highlighting"
@@ -231,9 +219,57 @@
   let g:paredit_leader= '\'
 
 
+
 " Jade Highlighting"
   Bundle "git://github.com/digitaltoad/vim-jade.git"
   autocmd BufNewFile,BufRead *.jade set filetype=jade
+
+"  Ctrl-P
+  Bundle "git://github.com/kien/ctrlp.vim.git"
+    nmap <Leader>p :CtrlP<CR>
+    nmap <Leader>n :CtrlPBuffer<CR>
+    nmap <Leader>m :CtrlPBufTag<CR>
+    nmap <Leader>mm :CtrlPBufTagAll<CR>
+    nmap <Leader>y :CtrlPBufTagAll<CR>
+
+" Get listing of all methods in a file
+  Bundle 'tacahiroy/ctrlp-funky'
+    let g:ctrlp_extensions = ['funky']
+    nmap <Leader>f :CtrlPFunky<CR>
+
+" CycleColor
+  Bundle "git://github.com/vim-scripts/CycleColor.git"
+
+
+" NEWER =================----------------------
+
+" Dash Searching"
+  Bundle "git://github.com/rizzatti/funcoo.vim.git"
+  Bundle "git://github.com/rizzatti/dash.vim.git"
+    nmap <Leader>qs <Plug>DashSearch
+    nmap <Leader>qa <Plug>DashGlobalSearch
+
+" Compile and deploy Arduino (*.pde) sketches directly from Vim
+  Bundle "git://github.com/smerrill/vim-arduino.git"
+    au BufNewFile,BufRead *.pde set filetype=arduino
+    au BufNewFile,BufRead *.ino set filetype=arduino
+
+" Go
+  Bundle "git://github.com/jnwhiteh/vim-golang.git"
+    au BufNewFile,BufRead *.go set filetype=go
+
+" Slim
+  Bundle "git://github.com/slim-template/vim-slim.git"
+    au BufNewFile,BufRead *.slim set filetype=slim
+
+" Less
+  Bundle "git://github.com/groenewege/vim-less.git"
+    au BufNewFile,BufRead *.less set filetype=less
+
+" Stylus
+  Bundle "git://github.com/wavded/vim-stylus.git"
+    au BufNewFile,BufRead *.styl set filetype=stylus
+
 
 " Scala Highlighting"
   Bundle "git://github.com/derekwyatt/vim-scala.git"
@@ -243,3 +279,7 @@
   Bundle "git://github.com/elixir-lang/vim-elixir.git"
     au BufNewFile,BufRead *.ex set filetype=elixir
     au BufNewFile,BufRead *.exs set filetype=elixir
+
+
+
+
