@@ -1,63 +1,74 @@
 # Uninstall desired apps
-brew cask zap java
 brew cask zap caffeine
 brew cask zap gitx
-brew cask zap anvil
+brew cask zap java
+
+brew cask zap justlooking
 
 # Uninstall these apps and corresponding files
-brew cask zap iterm2
-rm -rf ~/Library/Application\ Support/iTerm
-
-brew cask zap hipchat
-rm -rf ~/Library/Application\ Support/HipChat/
-
-brew cask zap nvalt
-rm -rf ~/Library/Application\ Support/Notational\ Data/
-rm -rf ~/Library/Application\ Support/nvALT
-
-brew cask zap flux
-rm -rf ~/Library/Application\ Support/Flux/
-
-brew cask zap openoffice
-rm -rf ~/Library/Application\ Support/OpenOffice/
-
-brew cask zap sublime-text
-rm -rf ~/Library/Application\ Support/Sublime\ Text\ 2/
-
-brew cask zap spotify
-rm -rf ~/Library/Application\ Support/Spotify/
-
-brew cask zap google-drive
-brew cask zap google-chrome
-brew cask zap google-hangouts
-rm -rf ~/Google\ Drive/
-rm -rf /Library/Application\ Support/Google/
-rm -rf /Library/Google/
-
-brew cask zap dropbox
-rm -rf ~/Dropbox/
-rm -rf ~/.dropbox/
-rm -rf /Library/DropboxHelperTools/
-
-brew cask zap virtualbox
-rm -rf ~/VirtualBox\ VMs/
-rm -rf /Library/Application\ Support/VirtualBox/
-
-brew cask zap firefox
-rm -rf ~/Library/Application\ Support/Firefox/
-rm -rf ~/Library/Application\ Support/Mozilla/
-
-brew cask zap github
-rm -rf ~/Library/Application\ Support/GitHub\ for\ Mac/
-
-brew cask zap onepassword
-rm -rf ~/Library/Application\ Support/1Password\ 4/
 
 brew cask zap alfred
 rm -rf ~/Library/Application\ Support/Alfred\ 2/
 
 brew cask zap ccleaner
 rm -rf ~/Library/Application\ Support/CCleaner/
+
+brew cask zap firefox
+rm -rf ~/Library/Application\ Support/Firefox/
+rm -rf ~/Library/Application\ Support/Mozilla/
+
+brew cask zap flux
+rm -rf ~/Library/Application\ Support/Flux/
+
+brew cask zap github
+rm -rf ~/Library/Application\ Support/GitHub\ for\ Mac/
+
+brew cask zap google-chrome
+rm -rf /Library/Application\ Support/Google/
+rm -rf /Library/Google/
+
+brew cask zap iterm2
+rm -rf ~/Library/Application\ Support/iTerm
+
+brew cask zap nvalt
+rm -rf ~/Library/Application\ Support/Notational\ Data/
+rm -rf ~/Library/Application\ Support/nvALT
+
+brew cask zap sublime-text
+rm -rf ~/Library/Application\ Support/Sublime\ Text\ 2/
+
+brew cask zap virtualbox
+rm -rf ~/VirtualBox\ VMs/
+rm -rf /Library/Application\ Support/VirtualBox/
+
+
+# Home Machine
+# brew cask zap anvil
+#
+# brew cask zap dropbox
+# rm -rf ~/Dropbox/
+# rm -rf ~/.dropbox/
+# rm -rf /Library/DropboxHelperTools/
+#
+# brew cask zap google-drive
+# brew cask zap google-hangouts
+# rm -rf ~/Google\ Drive/
+# rm -rf /Library/Application\ Support/Google/
+# rm -rf /Library/Google/
+#
+# brew cask zap hipchat
+# rm -rf ~/Library/Application\ Support/HipChat/
+#
+# brew cask zap openoffice
+# rm -rf ~/Library/Application\ Support/OpenOffice/
+#
+# brew cask zap onepassword
+# rm -rf ~/Library/Application\ Support/1Password\ 4/
+#
+# brew cask zap spotify
+# rm -rf ~/Library/Application\ Support/Spotify/
+
+
 
 # Clean up cached files and uninstall cask
 brew cask cleanup

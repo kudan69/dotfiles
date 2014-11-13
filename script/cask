@@ -1,29 +1,33 @@
-# Install brew-cask will allow you to install several apps not
+# Brew-cask will allow you to install several apps not
 # provided by the app store
 brew install caskroom/cask/brew-cask
 
 # Install desired apps
-brew cask install java
-brew cask install iterm2
-brew cask install ccleaner
-brew cask install google-chrome
-brew cask install google-drive
-brew cask install google-hangouts
-brew cask install dropbox
-brew cask install firefox
-brew cask install caffeine
-brew cask install onepassword
-brew cask install hipchat
-brew cask install nvalt
-brew cask install flux
-brew cask install openoffice
-brew cask install virtualbox
-brew cask install sublime-text
-brew cask install gitx
-brew cask install github
-brew cask install spotify
-brew cask install anvil
 brew cask install alfred
+brew cask install caffeine
+brew cask install ccleaner
+brew cask install firefox
+brew cask install flux
+brew cask install github
+brew cask install gitx
+brew cask install google-chrome
+brew cask install iterm2
+brew cask install java
+brew cask install nvalt
+brew cask install sublime-text
+brew cask install virtualbox
+brew cask install justlooking
+
+
+# brew cask install anvil
+# brew cask install dropbox
+# brew cask install google-drive
+# brew cask install google-hangouts
+# brew cask install hipchat
+# brew cask install onepassword
+# brew cask install openoffice
+# brew cask install spotify
+
 
 # Link alfred to look at cask folder so these apps
 # show when doing a search
