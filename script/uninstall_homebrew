@@ -1,26 +1,27 @@
 # Uninstall each brew app we installed
 brew uninstall ack
-brew uninstall the_silver_searcher
+brew uninstall clamav
+brew uninstall coreutils
 brew uninstall ctags
 brew uninstall htmldoc
-brew uninstall jasper
-brew uninstall libtiff
-brew uninstall ossp-uuid
-brew uninstall redis
-brew uninstall clamav
 brew uninstall ghostscript
-brew uninstall imagemagick
-brew uninstall jpeg
-brew uninstall little-cms
-brew uninstall pkg-config
-brew uninstall readline
-brew uninstall pidof
-brew uninstall wget
-brew uninstall pow
-brew uninstall macvim
 brew uninstall git
 brew uninstall hub
-brew uninstall coreutils
+brew uninstall imagemagick
+brew uninstall jasper
+brew uninstall jpeg
+brew uninstall libtiff
+brew uninstall little-cms
+brew uninstall macvim
+brew uninstall ossp-uuid
+brew uninstall pidof
+brew uninstall pkg-config
+brew uninstall pow
+brew uninstall redis
+brew uninstall readline
+brew uninstall wget
+brew uninstall the_silver_searcher
+brew uninstall tmux
 
 #unload and remove postgresql
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist

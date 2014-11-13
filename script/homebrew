@@ -24,24 +24,28 @@ brew update
 brew upgrade
 
 # Install the brew packages you want
-brew install ack
-brew install the_silver_searcher
-brew install ctags
-brew install htmldoc
-brew install jasper
-brew install libtiff
-brew install ossp-uuid
 brew install clamav
+brew install ctags
 brew install ghostscript
+brew install htmldoc
 brew install imagemagick
+brew install jasper
 brew install jpeg
+brew install libtiff
 brew install little-cms
-brew install pkg-config
-brew install readline
-brew install pidof
-brew install wget
-brew install pow
 brew install macvim
+brew install ossp-uuid
+brew install pkg-config
+brew install pidof
+brew install readline
+brew install the_silver_searcher
+brew install tmux
+brew install wget
+
+#brew install pow
+#brew install ack
+#brew install watch
+
 
 # Install git and hub(Hub is a github specific thing allowing for things like pull-requests)
 brew install git
