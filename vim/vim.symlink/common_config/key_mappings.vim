@@ -1,9 +1,6 @@
 " get out of insert mode with cmd-i
   imap <D-i> <Esc>
 
-" shortcut to get out of insert mode
-  imap jj <Esc>
-
 " easy wrap toggling
   nmap <Leader>w :set wrap!<cr>
   nmap <Leader>W :set nowrap<cr>
@@ -20,7 +17,9 @@
 " shortcuts for frequenly used files
   nmap gs :e db/schema.rb<cr>
   nmap gr :e config/routes.rb<cr>
-  nmap gm :e Gemfile<cr>
+  nmap gh :e Gemfile<cr>
+  nmap gd :e config/database.yml<cr>
+  nmap gl :e config/locales/en.yml<cr>
 
 " insert blank lines without going into insert mode
   nmap go o<esc>
@@ -47,7 +46,7 @@
   nnoremap vv `[V`]
 
 " clean up trailing whitespace
-  map <Leader>c :StripTrailingWhitespaces<cr>
+  map <Leader>c :%s/\s\+$<cr>
 
 " compress excess whitespace on current line
   map <Leader>e :s/\v(\S+)\s+/\1 /<cr>:nohl<cr>
@@ -57,6 +56,10 @@
 
 " map spacebar to clear search highlight
   nnoremap <Leader><space> :noh<cr>
+
+" make tab key match bracket pairs
+  nnoremap <tab> %
+  vnoremap <tab> %
 
 " buffer resizing mappings (shift + arrow key)
   nnoremap <S-Up> <c-w>+
@@ -71,6 +74,9 @@
 " Command mode: Ctrl-P
   cmap <C-S-P> <C-R>=expand("%:p:h") . "/" <cr>
 
-" jump to far right or left of line
-  map L $
-  map H ^
+" debug
+  nmap deb debugger<esc>
+  nmap rb <% %><esc>
+  nmap pry binding.pry<Esc>
+
+
