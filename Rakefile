@@ -124,6 +124,12 @@ task :uninstall do
   Rake::Task[:uninstall_plugins].execute
   Rake::Task[:uninstall_symlinks].execute
   Rake::Task[:uninstall_dotfiles].execute
+  Rake::Task[:uninstall_zshell].execute
+end
+
+desc "Uninstall oh-my-zshell"
+task :uninstall_zshell do
+  system("script/uninstall_zshell")
 end
 
 desc "Uninstall brew, apps, and plugins"
