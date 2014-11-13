@@ -80,7 +80,6 @@ alias now='sudo redo' # I meant sudo on that last command
 alias reload='exec zsh'
 
 alias bi='bundle install'
-alias be='bundle exec'
 
 # Rbenv
 alias rb='rbenv'
