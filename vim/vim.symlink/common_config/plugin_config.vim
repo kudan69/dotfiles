@@ -18,7 +18,8 @@
   Bundle "git://github.com/ervandew/supertab.git"
   Bundle "git://github.com/tomtom/tcomment_vim.git"
   Bundle "git://github.com/michaeljsmith/vim-indent-object.git"
-  Bundle "git://github.com/tsaleh/vim-matchit.git"
+  "TODO This flagged an issue during install
+  "Bundle "git://github.com/tsaleh/vim-matchit.git"
   Bundle "git://github.com/kana/vim-textobj-user.git"
   Bundle "git://github.com/nelstrom/vim-textobj-rubyblock.git"
   Bundle "git://github.com/tpope/vim-repeat.git"
@@ -156,11 +157,21 @@
     vmap <C-Down> ]egv
 
 
+" " Syntastic for catching syntax errors on save
+"   Bundle "git://github.com/scrooloose/syntastic.git"
+"     let g:syntastic_enable_signs=1
+"     let g:syntastic_quiet_warnings=1
+"     let g:syntastic_disabled_filetypes = ['sass']
+
 " Syntastic for catching syntax errors on save
   Bundle "git://github.com/scrooloose/syntastic.git"
     let g:syntastic_enable_signs=1
-    let g:syntastic_quiet_warnings=1
-    let g:syntastic_disabled_filetypes = ['sass']
+    let g:syntastic_quiet_messages = {'level': 'warning'}
+    " syntastic is too slow for haml and sass
+    let g:syntastic_mode_map = { 'mode': 'active',
+                               \ 'active_filetypes': [],
+                               \ 'passive_filetypes': ['haml','scss','sass'] }
+
 
 
 " gist-vim for quickly creating gists
