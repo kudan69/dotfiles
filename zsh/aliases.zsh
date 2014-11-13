@@ -1,30 +1,96 @@
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
-alias .......="cd ../../../../../.."
+alias ajaxrdoc="rdoc --fmt ajax --exclude '.*generator.*' --exclude '.*test.*' --exclude '.*spec.*'"
+alias c='clear'
+alias cpwd="pwd | ruby -pe'\$_.chomp!' | pbcopy" # copy path to clipboard
+alias grep='grep --color --line-number'
+alias vim='mvim -v' #use mvim version of vim as terminal vim
+alias vi='mvim -v' #use mvim version of vim as terminal vim
+alias gvim='mvim -p'
+alias ll='ls -lF' # long format listing; add / to end of directories
+alias la='ls -alF' # include dot files in listing; add / to end of directories
+alias mv='mv -i' # prompt before moving a file that would overwrite an existing file
+alias watch='watchr ~/.watchr.rb'
+alias lop='sudo lsof -i -P | grep -i "listen"' # show open ports
 
-alias rt="ctags -R *"
+alias icons='cd ~/Pictures/icons; open -a Preview **/*.png **/*.tiff  **/*.jpg'
+alias preview='open -a Preview'
+alias bwm='cd ~/projects/buywithme'
 
-# grc overides for ls
-#   Made possible through contributions from generous benefactors like
-#   `brew install coreutils`
-alias l="ls -AFG"
+# Databses
 
-# Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias mysql='/usr/local/bin/mysql -u root --socket=/tmp/mysql.sock'
+alias mysqladmin='/usr/local/bin/mysqladmin -u root --socket=/tmp/mysql.sock'
+alias mysql_config='/usr/local/bin/mysql_config'
+alias pg_start='pg_ctl -l /usr/local/var/postgres/server.log start'
+alias pg_stop='pg_ctl stop -s -m fast'
+alias pg_status='pg_ctl status'
 
-# ruby
-alias cpwd="pwd | ruby -pe'\$_.chomp!' | pbcopy"
-alias rshare="ruby -rubygems -e \"['thin', 'rack', 'socket'].each {|file| require file };"\
-" Thin::Server.start(IPSocket.getaddress(Socket.gethostname), 7777) {"\
-" use Rack::CommonLogger; run Rack::Directory.new(Dir.pwd) }\""
-alias duo='du -sh $(du -s * | sort -k1n | ruby -nae '\''puts '\$'F[1..-1].join("?")'\'')'
+# Rails
 
-# My personal ones
-alias zshrc="vi ~/.zshrc"
-alias la='ls -al'
-alias vimconfig='vi ~/.vim/common_config/key_mappings.vim'
-alias personal='cd ~/Dropbox/home_projects/'
+alias be='bundle exec'
+alias devlog='tail -200 -f log/development.log'
+alias log='tail -f log/development.log'
+alias restart='touch tmp/restart.txt'
+alias rmate='mate app config doc db features lib public script spec test stories liquid'
+alias rs='bundle exec rails s'
+alias rc='bundle exec rails c'
+alias rg='bundle exec rails g'
+alias sc='./script/console'
+alias sg='./script/generate'
+alias sp='./script/spec -cfs'
+alias ss='./script/server'
+alias ssd='./script/server --debugger'
+alias testlog='tail -200 -f log/test.log'
+alias cukelog='tail -200 -f log/cucumber.log'
 
+# Rack
+
+alias ru='bundle exec rackup config.ru'
+
+# Git
+
+alias gitrm='git ls-files -z --deleted | xargs -0 git rm'
+alias gitx='gitx --all'
+alias gpci='git-pair commit'
+alias gp='git pair'
+alias push='git push'
+alias rebase='git fetch; git rebase origin/master'
+alias st='git status'
+alias gst='git status'
+alias gc='git commit'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias go='git co'
+alias getch='git fetch'
+alias tug='git pull -r origin'
+
+# cap
+alias plog='cap SERVER=web production slice:tail_environment_logs'
+alias gf='git br -a | grep '
+
+alias rails-bootstrap='ruby ~/rails-bootstrap/rails-bootstrap.rb'
+
+# history
+alias sudo='sudo ' # allow running sudo against an alias
+alias redo='`cat $HOME/.zsh_history | tail -n2 | head -n1`' # run last command again
+alias now='sudo redo' # I meant sudo on that last command
+
+
+# KN ================
+#########################
+alias reload='exec zsh'
+
+alias bi='bundle install'
+alias be='bundle exec'
+
+# Rbenv
+alias rb='rbenv'
+alias rbr='rbenv rehash'
+alias rbv='rbenv version'
+alias rbvs='rbenv versions'
+alias rbl='rbenv install --list'
+
+alias catv='cat .rbenv-version'
+alias catg='cat .rbenv-gemsets'
+
+# Make gitx open from terminal
+alias gitx='open -a GitX .'
