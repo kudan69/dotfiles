@@ -2,22 +2,39 @@
 
 ## intro
 
-Your dotfiles are how you personalize your system. These are mine. The very
-prejudiced mix: OS X, zsh, Ruby, Rails, git, homebrew, rbenv, vim. If you
-match up along most of those lines, you may dig my dotfiles.
+Based off of Zach Holman's dotfiles
 
-Based off of Zach Holman's dotfiles, but updated to use Vundle.
+The following will be installed amoung others:
+```sh
+zsh
+macvim
+ruby
+rails
+git
+homebrew
+rbenv
+tmux
+```
 
-http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/
 
 ## install
+
+Before you install, customize the following files to your needs:
+```sh
+For the ruby versions
+*/script/rbenv
+For git configs
+*/git/gitconfig.symlink
+```
 
 Run this:
 
 ```sh
-git clone https://github.com/dtkocher/dotfiles.git ~/.dotfiles
+git clone https://github.com/kudan69/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 rake #to install apps/plugins, do symlinking, and setup vim plugins
+
+For selective installs
 rake install_plugins #to install just apps/plugins
 rake install_symlinks #to just do the symlinking
 rake install_vundle #to just install vim plugins
