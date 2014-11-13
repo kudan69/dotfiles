@@ -4,11 +4,17 @@ brew install rbenv-gemset
 brew install ruby-build
 
 # Install versions
-rbenv install 1.9.3-p547
-rbenv global 1.9.3-p547
+rbenv install 1.9.3-p484
+rbenv global 1.9.3-p484
+rbenv rehash
+
+rbenv install 1.9.3-p392
 rbenv rehash
 
 rbenv install 2.0.0-p576
+rbenv rehash
+
+rbenv install 2.1.2
 rbenv rehash
 
 rbenv install 2.1.3
