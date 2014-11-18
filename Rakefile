@@ -28,6 +28,12 @@ task :install_plugins do
   system("script/install")
 end
 
+desc "Install zsh"
+task :install_zsh do
+  system("script/zshell")
+end
+
+
 desc "Hook our dotfiles into system-standard positions."
 task :install_symlinks do
   linkables = Dir.glob('*/**{.symlink}', File::FNM_DOTMATCH)
@@ -125,11 +131,6 @@ task :uninstall do
   Rake::Task[:uninstall_symlinks].execute
   Rake::Task[:uninstall_dotfiles].execute
   Rake::Task[:uninstall_zshell].execute
-end
-
-desc "Uninstall oh-my-zshell"
-task :uninstall_zshell do
-  system("script/uninstall_zshell")
 end
 
 desc "Uninstall brew, apps, and plugins"

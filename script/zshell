@@ -1,2 +1,21 @@
 # Install oh-my-zshell
 #wget --no-check-certificate http://install.ohmyz.sh -O - | sh
+
+autoload -U compinit && compinit
+autoload colors && colors
+
+source ~/dotfiles/zsh/aliases.zsh
+source ~/dotfiles/zsh/bindkeys.zsh
+source ~/dotfiles/zsh/completion.zsh
+source ~/dotfiles/zsh/completion_rake.zsh
+source ~/dotfiles/zsh/exports.zsh
+source ~/dotfiles/zsh/functions.zsh
+source ~/dotfiles/zsh/history.zsh
+source ~/dotfiles/zsh/prompt.zsh
+source ~/dotfiles/zsh/set_options.zsh
+
+if [[ -s ~/dotfiles/zsh/custom.zsh ]] ; then source ~/dotfiles/zsh/custom.zsh ; fi
+
+### KN Added All Below
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
