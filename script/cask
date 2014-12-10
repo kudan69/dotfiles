@@ -9,19 +9,19 @@ brew cask install ccleaner
 brew cask install firefox
 brew cask install flux
 brew cask install github
-brew cask install gitx
+brew cask install rowanj-gitx
 brew cask install google-chrome
 brew cask install iterm2
 brew cask install java
 brew cask install nvalt
 brew cask install sublime-text
 brew cask install virtualbox
-#brew cask install justlooking
+brew cask install justlooking
+brew cask install dropbox
+brew cask install google-drive
 
 
 # brew cask install anvil
-# brew cask install dropbox
-# brew cask install google-drive
 # brew cask install google-hangouts
 # brew cask install hipchat
 # brew cask install onepassword

@@ -41,6 +41,7 @@ brew install readline
 brew install the_silver_searcher
 brew install tmux
 brew install wget
+brew install qt
 
 #brew install pow
 #brew install ack
