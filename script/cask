@@ -16,7 +16,7 @@ brew cask install java
 brew cask install nvalt
 brew cask install sublime-text
 brew cask install virtualbox
-brew cask install justlooking
+#brew cask install justlooking
 
 
 # brew cask install anvil
