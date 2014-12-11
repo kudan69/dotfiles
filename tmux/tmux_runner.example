@@ -1,0 +1,21 @@
+neww -k -t 2 -c <project path> -n ss_srvr         "zsh -is eval 'bundle exec rails server -p 3000'"
+neww -k -t 3 -c <project path> -n resque          "zsh -is eval 'rake resque:work QUEUE=<queue name>'"
+neww -k -t 4 -c <project path> -n schedulr        "zsh -is eval 'rake resque:scheduler'"
+
+neww -k -t 6 -c <project path> -n transproc       "zsh -is eval 'bundle exec sidekiq -q <project name> -r queues/<project name>.rb'"
+neww -k -t 7 -c <project path> -n pdfbx73         "zsh -is eval 'bundle exec sidekiq -q pdfbox_073 -r queues/pdfbox_073.rb'"
+neww -k -t 8 -c <project path> -n pdfbx160        "zsh -is eval 'bundle exec sidekiq -q pdfbox_160 -r queues/pdfbox_160.rb'"
+neww -k -t 9 -c <project path> -n itext           "zsh -is eval 'bundle exec sidekiq -q itext_521 -r queues/itext_521.rb'"
+
+neww -k -t 10 -c <project path> -n servr          "zsh -is eval 'bundle exec rails server -p 3002'"
+neww -k -t 11 -c <project path> -n workr          "zsh -is eval 'bundle exec sidekiq -q <name>'"
+#neww -k -t 12 -c <project path> -n vi            "zsh -is eval 'vi'"
+
+#join-pane -s 2 -d 0
+#join-pane -s 10 -d 0
+
+#joinp -s 6 -d 0
+#joinp -s 1 -d 0
+#joinp -s 11 -d 0
+#joinp -s 2 -d 0
+
